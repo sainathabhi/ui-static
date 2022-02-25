@@ -163,26 +163,26 @@ export class HtmlComponent implements OnInit, OnChanges, OnDestroy {
         //     `${environment.azureHost}/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-snapshot/index.html?timestamp='${new Date().getTime()}`
         //   )
         // }
-        if (this.htmlContent.streamingUrl) {
-          this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
-            `${this.htmlContent.streamingUrl}?timestamp='${new Date().getTime()}`)
-        } else {
-          if (environment.production) {
+       // if (this.htmlContent.streamingUrl) {
+        //  this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
+        //    `${this.htmlContent.streamingUrl}?timestamp='${new Date().getTime()}`)
+        //} else {
+         // if (environment.production) {
             this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
               // tslint:disable-next-line: max-line-length
               // `${environment.azureHost}/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-snapshot/index.html?timestamp='${new Date().getTime()}`
               // tslint:disable-next-line: max-line-length
-              `${environment.azureHost}/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-snapshot/index.html?timestamp='${new Date().getTime()}`
+              `${environment.azureHost}/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-latest/index.html?timestamp='${new Date().getTime()}`
             )
-          } else {
-            this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
+        //  } else {
+          //  this.iframeUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
               // tslint:disable-next-line: max-line-length
               // `${environment.azureHost}/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-snapshot/index.html?timestamp='${new Date().getTime()}`
               // tslint:disable-next-line: max-line-length
-              `/abcd/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-snapshot/index.html?timestamp='${new Date().getTime()}`
-            )
-          }
-        }
+              //`/abcd/${environment.azureBucket}/content/html/${this.htmlContent.identifier}-latest/index.html?timestamp='${new Date().getTime()}`
+            //)
+          //}
+       // }
       } else {
         setTimeout(
           () => {
